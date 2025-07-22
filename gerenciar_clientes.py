@@ -5,7 +5,7 @@ import os
 import sys
 import subprocess
 
-#  FUNÇÃO DE CAMINHO ROBUSTA 
+
 def resource_path(relative_path):
     """ Retorna o caminho absoluto para o recurso, funciona para dev e para PyInstaller """
     try:
@@ -14,7 +14,7 @@ def resource_path(relative_path):
         base_path = os.path.abspath(".")
     return os.path.join(base_path, relative_path)
 
-#  FUNÇÕES DE DADOS 
+
 def carregar_clientes():
     caminho_arquivo = resource_path('clientes.csv')
     if not os.path.exists(caminho_arquivo): return [], []
@@ -40,7 +40,7 @@ def salvar_clientes(cabecalho, dados):
         sg.popup_error(f"Erro ao salvar clientes.csv: {e}")
         return False
 
-# JANELA DE EDIÇÃO 
+
 def criar_janela_edicao_cliente(cliente_dados):
     layout_edicao = [
         [sg.Text('Nome:'), sg.Input(cliente_dados[0], key='-NOME-')],
@@ -70,7 +70,7 @@ def criar_janela_edicao_cliente(cliente_dados):
     janela_edicao.close()
     return cliente_atualizado
 
-# INTERFACE PRINCIPAL 
+
 python_exe = sys.executable
 cabecalho_tabela, dados_tabela_mestra = carregar_clientes()
 
@@ -110,8 +110,8 @@ while True:
             
             dados_do_cliente_selecionado = dados_exibidos_atualmente[indice_na_tabela]
             
-            # Precisamos encontrar o índice real desse cliente na lista mestra
-            # para garantir que removemos ou editamos o cliente correto no arquivo CSV.
+           
+           
             try:
                 indice_real_na_mestra = dados_tabela_mestra.index(dados_do_cliente_selecionado)
             except ValueError:
