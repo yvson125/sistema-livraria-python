@@ -4,7 +4,7 @@ import csv
 import os
 import sys  # Adicionado
 
-# --- FUNÇÃO DE CAMINHO ROBUSTA ---
+
 def resource_path(relative_path):
     """ Retorna o caminho absoluto para o recurso, funciona para dev e para PyInstaller """
     try:
@@ -13,7 +13,7 @@ def resource_path(relative_path):
         base_path = os.path.abspath(".")
     return os.path.join(base_path, relative_path)
 
-# --- FUNÇÃO PARA SALVAR O LIVRO (Atualizada para usar resource_path) ---
+
 def salvar_livro_csv(livro):
     nome_arquivo = resource_path('livros.csv') # USA A FUNÇÃO
     arquivo_existe = os.path.isfile(nome_arquivo)
@@ -28,7 +28,7 @@ def salvar_livro_csv(livro):
     except IOError:
         return False
 
-# --- INTERFACE GRÁFICA (Seu layout, sem alterações) ---
+
 layout = [
     [sg.Text('Título:'), sg.Input(key='titulo')],
     [sg.Text('Autor:'), sg.Input(key='autor')],
@@ -42,7 +42,7 @@ layout = [
 
 janela = sg.Window('Cadastro de Livros', layout, element_justification='c')
 
-# --- LOOP DE EVENTOS (Sua lógica, sem alterações) ---
+
 while True:
     evento, valores = janela.read()
     if evento == sg.WINDOW_CLOSED:
