@@ -1,4 +1,4 @@
-# gui_cadastro_livro.py (Versão final e robusta)
+
 import PySimpleGUI as sg
 import csv
 import os
