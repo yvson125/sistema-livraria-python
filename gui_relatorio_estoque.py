@@ -1,11 +1,11 @@
-# gui_relatorio_estoque.py (Versão final e robusta)
+
 import PySimpleGUI as sg
 import csv
 import os
 import sys  # Adicionado
 from datetime import datetime
 
-# --- FUNÇÃO DE CAMINHO ROBUSTA ---
+
 def resource_path(relative_path):
     """ Retorna o caminho absoluto para o recurso, funciona para dev e para PyInstaller """
     try:
@@ -14,7 +14,7 @@ def resource_path(relative_path):
         base_path = os.path.abspath(".")
     return os.path.join(base_path, relative_path)
 
-# --- FUNÇÕES DE CÁLCULO (Atualizadas para usar resource_path) ---
+
 def carregar_dados(nome_arquivo):
     caminho_arquivo = resource_path(nome_arquivo) # USA A FUNÇÃO
     if not os.path.exists(caminho_arquivo): return []
@@ -44,7 +44,7 @@ def calcular_valor_estoque_por_categoria():
         valor_por_categoria[categoria] = valor_por_categoria.get(categoria, 0) + valor_item
     return valor_por_categoria
 
-# --- LAYOUT E LÓGICA DO RELATÓRIO (Sua lógica, sem alterações) ---
+
 layout = [
     [sg.Text('Relatório Financeiro e de Estoque', font=('Helvetica', 16))],
     [sg.Button('Gerar Relatório Atualizado', size=(30, 2))],
